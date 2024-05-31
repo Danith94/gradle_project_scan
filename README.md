@@ -1,1 +1,1 @@
-# gradle_project_scan
+# This is a sample project
