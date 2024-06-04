@@ -4,6 +4,7 @@ plugins {
     id 'org.javamodularity.moduleplugin' version '1.8.12'
     id 'org.openjfx.javafxplugin' version '0.0.13'
     id 'org.beryx.jlink' version '2.25.0'
+    id("org.owasp.dependencycheck") version "9.2.0"
 }
 
 group 'com.example'
@@ -14,9 +15,7 @@ repositories {
 }
 
 
-def postgresql_version = '42.5.0'
-def apache_commonslang_version = '3.14.0'
-def apache_commons_collections4_version = '4.0'
+def lombok_mapstruct_binding_verion = '0.2.0'
 
 ext {
     junitVersion = '5.10.0'
@@ -41,10 +40,8 @@ javafx {
 
 dependencies {
 
+    implementation("org.postgresql:postgresql:42.4.0")
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
-    testImplementation("org.postgresql:postgresql:${postgresql_version}")
-    testImplementation("org.apache.commons:commons-lang3:${apache_commonslang_version}")
-    testImplementation("org.apache.commons:commons-collections4:${apache_commons_collections4_version}")
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
