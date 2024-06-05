@@ -1,12 +1,21 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.owasp:dependency-check-gradle:9.2.0'
+    }
+}
+
+
 plugins {
     id 'java'
     id 'application'
     id 'org.javamodularity.moduleplugin' version '1.8.12'
     id 'org.openjfx.javafxplugin' version '0.0.13'
     id 'org.beryx.jlink' version '2.25.0'
-    id("org.owasp.dependencycheck") version "9.2.0"
 }
-
+apply plugin: 'org.owasp.dependencycheck'
 group 'com.example'
 version '1.0-SNAPSHOT'
 
@@ -14,15 +23,10 @@ repositories {
     mavenCentral()
 }
 
-
-def lombok_mapstruct_binding_verion = '0.2.0'
-
 ext {
     junitVersion = '5.10.0'
 }
 
-sourceCompatibility = '11'
-targetCompatibility = '11'
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
@@ -43,6 +47,7 @@ dependencies {
     implementation("org.postgresql:postgresql:42.4.0")
     implementation("com.google.guava:guava:24.0-jre")
     implementation("org.apache.commons:commons-collections4:4.0")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0")
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
@@ -52,7 +57,14 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
 
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+
+
 }
+
+
+
+
+
 
 test {
     useJUnitPlatform()
@@ -69,3 +81,4 @@ jlink {
 jlinkZip {
     group = 'distribution'
 }
+
