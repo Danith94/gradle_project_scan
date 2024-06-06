@@ -7,11 +7,7 @@ pipeline {
     }
 
     stages {
-        stage('check version') {
-            steps {
-                sh 'gradle --version'
-            }
-        }
+
         stage('Checkout') {
             steps {
                 // Check out the Git repository
@@ -19,10 +15,17 @@ pipeline {
             }
         }
 
+        stage('PWD') {
+
+            sh 'pwd'
+
+        }
+
         stage('Build') {
             steps {
                  // Build your project (e.g., compile, package, etc.)
                   withGradle() {
+                        sh 'gradle --version'
                         sh './gradlew clean build'
                 }
 
