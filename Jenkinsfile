@@ -34,7 +34,7 @@ pipeline {
         }
 
         stage('Dependency-Check') {
-//            steps {
+            steps {
                 // Invoke OWASP Dependency-Check
                 // Ensure that OWASP Dependency-Check is available in the system PATH
 //                 dependencyCheck additionalArguments: '--project WORKSPACE', odcInstallation: 'SCA'
@@ -46,7 +46,7 @@ pipeline {
                               --prettyPrint''', odcInstallation: 'test-dp'
 
                   dependencyCheckPublisher pattern: 'dependency-check-report.xml'
-//            }
+            }
         }
     }
 }
