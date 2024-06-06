@@ -1,11 +1,11 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'org.owasp:dependency-check-gradle:9.2.0'
-    }
-}
+//buildscript {
+//    repositories {
+//        mavenCentral()
+//    }
+//    dependencies {
+//        classpath 'org.owasp:dependency-check-gradle:9.2.0'
+//    }
+//}
 
 
 plugins {
@@ -15,7 +15,7 @@ plugins {
     id 'org.openjfx.javafxplugin' version '0.0.13'
     id 'org.beryx.jlink' version '2.25.0'
 }
-apply plugin: 'org.owasp.dependencycheck'
+//apply plugin: 'org.owasp.dependencycheck'
 group 'com.example'
 version '1.0-SNAPSHOT'
 
@@ -47,7 +47,7 @@ dependencies {
     implementation("org.postgresql:postgresql:42.4.0")
     implementation("com.google.guava:guava:24.0-jre")
     implementation("org.apache.commons:commons-collections4:4.0")
-    implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0")
+   // implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0")
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
